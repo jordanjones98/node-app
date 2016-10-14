@@ -1,4 +1,4 @@
-// require('./config/connect.js')
+require('./config/connect.js')
 require('./config/routes.js')
 const path = require('path')
 const exphbs = require('express-handlebars')
@@ -12,12 +12,6 @@ const port = 80
 var selectAll
 var userID = '1'
 var mysql = require('mysql')
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "jordan",
-  password: "MCpassword12qw",
-  database: "users"
-});
 app.use(express.static(__dirname))
 
 console.log(__dirname)
