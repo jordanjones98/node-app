@@ -17,13 +17,13 @@ app.use(express.static(__dirname))
 console.log(__dirname)
 
 // sql
-con.query('SELECT * FROM user WHERE id=' + userID,function(err,rows){
-  if(err) throw err;
-
-  // SHOWS ROWS IN CONSOLE
-  console.log('Data received from Db:\n');
-  console.log(rows);
-});
+// con.query('SELECT * FROM user WHERE id=' + userID,function(err,rows){
+//   if(err) throw err;
+//
+//   // SHOWS ROWS IN CONSOLE
+//   console.log('Data received from Db:\n');
+//   console.log(rows);
+// });
 
 app.listen(port, (err) => {
     if (err) {
