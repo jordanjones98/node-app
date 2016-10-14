@@ -43,13 +43,13 @@ app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
 
-con.query('SELECT * FROM user',function(err, rows){
-  if(err) throw err;
-
-  console.log('Data received from Db:\n');
-  console.log(rows);
-  output = rows
-});
+// con.query('SELECT * FROM user',function(err, rows){
+//   if(err) throw err;
+//
+//   console.log('Data received from Db:\n');
+//   console.log(rows);
+//   output = rows
+// });
 
 // selectAll = con.query('SELECT * FROM user')
 //
