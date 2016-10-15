@@ -8,17 +8,10 @@ const passport = require('passport')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 const app = express()
-const port = 80
+const port = 8080
 var selectAll
 var userID = '1'
 var mysql = require('mysql')
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "jordan",
-  password: "MCpassword12qw",
-  database: "users"
-});
-app.use(express.static(__dirname))
 
 console.log(__dirname)
 
@@ -57,12 +50,6 @@ con.query('SELECT * FROM user',function(err, rows){
   output = rows
 });
 
-// selectAll = con.query('SELECT * FROM user')
-//
-// console.log(selectAll)
-
-// Routes
-
 app.get('/', (request, response) => {
     response.render('home', {
         name: 'Jordan',
@@ -88,15 +75,3 @@ app.get('/about', (request, response) => {
 
 
 // End Routes (Make routes before this line)
-//
-// Start auth
-// app.use(session({
-//     store: new RedisStore({
-//         url: config.redisStore.url
-//     }),
-//     secret: config.redisStore.secret,
-//     resave: false,
-//     saveUninitialized: false
-// }))
-// app.use(passport.initialize())
-// app.use(passport.session())
