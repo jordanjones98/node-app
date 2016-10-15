@@ -14,6 +14,7 @@ This app is built with node.js and nginx, to run a test version on your computer
 <code>npm install lodash</code><br>
 <code>npm install express-session</code><br>
 <code>npm install connect-redis</code><br>
+<code>npm install passport</code><br>
 <code>sudo node index.js</code> (To start server)
 
 ### Nodemon
@@ -28,4 +29,4 @@ Before you submit a pull request we ask that you test your changes locally. To d
 ## FAQ
 If you have any questions feel free to send me an email at 
 <a href="mailto:jordanalanjones@gmail.com">jordanalanjones@gmail.com</a> 
-Last update 10/14/2016
+<br>Last update 10/14/2016
