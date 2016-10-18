@@ -8,7 +8,7 @@ const passport = require('passport')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 const app = express()
-const port = 80
+const port = 8080
 var selectAll
 var userID = '1'
 var mysql = require('mysql')
