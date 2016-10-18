@@ -1,4 +1,4 @@
-require('./config/connect.js')
+// require('./config/connect.js')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const _ = require('lodash')
