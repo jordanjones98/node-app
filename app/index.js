@@ -32,7 +32,6 @@ app.get('/', (request, response) => {
     response.render('home', {
         name: 'Jordan',
         title: 'Home',
-        output: output.firstName
     })
 })
 app.get('/login', (request, response) => {
