@@ -3,9 +3,9 @@ const express = require('express')
 const app = express()
 var mysql = require('mysql')
 var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "jordan",
-  password: "MCpassword12qw",
+  host: "107.170.36.112",
+  user: "USERNAME",
+  password: "PASSWORD",
   database: "users"
 });
 
