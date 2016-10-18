@@ -1,45 +1,25 @@
-<h2>Login</h2>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=709054365909966";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '709054365909966',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="442576158812-6f8ub5036jidjdm5fi1pujoerrg61oj0.apps.googleusercontent.com">
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-   // Checks if user is logged into app
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
+<script type="text/javascript">
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+    }
 
-    function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
 </script>
-<p>
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div><br />
-    <fb:login-button
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button><br />
-    Not registered yet? Register <a href="/register">here</a>!
-</p>
+
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
