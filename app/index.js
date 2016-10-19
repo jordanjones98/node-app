@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/', (request, response) => {
     response.render('home', {
         name: 'Jordan',
-        title: 'Home',
+        title: 'Home'
     })
 })
 app.get('/login', (request, response) => {
@@ -49,6 +49,43 @@ app.get('/about', (request, response) => {
         title: 'About Us'
     })
 })
+app.get('/home',(request, response) => {
+    response.render('welcome', {
+        title: 'Welcome'
+    })
+})
 
 
 // End Routes (Make routes before this line)
+
+// auth
+app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.redirect('/home/' + req.user.username);
+  });
+
+  app.post('/login',
+   passport.authenticate('local', { successRedirect: '/',
+                                    failureRedirect: '/login',
+                                    failureFlash: true })
+ );
+
+  LocalStrategy = require('passport-local').Strategy;
+
+  passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findOne({ username: username }, function(err, user) {
+        if (err) { return done(err); }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }
+  ));
